@@ -18,10 +18,13 @@ void analizeLog(char *logFile, char *report);
 
 int main(int argc, char **argv) {
 
+ 
+
     if (argc < 2) {
 	printf("Usage:./pacman-analizer.o pacman.log\n");
 	return 1;
     }
+
 
     analizeLog(argv[2], argv[4]);
 
@@ -95,7 +98,7 @@ void analizeLog(char *logFile, char *report) {
         int file_descriptor = open(logFile, O_RDONLY);
     if (file_descriptor < 0) {
         perror("File could not be opened"); 
-        exit(1); 
+        return 0;
     }
     int count_bytes = 0, i=0, end,bytes = 0;
     while(1){
